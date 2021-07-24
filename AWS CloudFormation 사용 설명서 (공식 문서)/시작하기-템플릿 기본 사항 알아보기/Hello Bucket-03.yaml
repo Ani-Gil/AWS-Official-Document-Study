@@ -1,0 +1,8 @@
+Resources:
+  HelloBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:   # S3 Web access properties possiable
+        IndexDocument: index.html
+        ErrorDocument: error.html
