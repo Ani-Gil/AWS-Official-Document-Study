@@ -1,0 +1,5 @@
+Resources:    # Resource Section
+  HelloBucket:    # Resource Name
+    Type: AWS::S3::Bucket   # Resource Type
+    Properties:   # Resource Properties
+      AccessControl: PublicRead   # Properties Detail
