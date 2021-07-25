@@ -1,11 +1,15 @@
+Parameters:
+  KeyName:
+    Description: The EC2 Key Pair to allow SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
 Resources:
   Ec2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
-        - MyExistingSecurityGroup   # Template에 선언된 보안 그룹 대신에 기존 EC2 보안 그룹을 참조하는 문자열
-      KeyName: mykey
+        - MyExistingSecurityGruop
+      KeyName: !Ref KeyName
       ImageId: ami-7a11e213
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
@@ -15,4 +19,4 @@ Resources:
         - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
-          CidrIp: '0.0.0.0/0'
+          CidrIp: 0.0.0.0/0
